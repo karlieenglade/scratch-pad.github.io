@@ -20,9 +20,20 @@
  */
 
 function reverseString(input) {
-  // YOUR CODE BELOW HERE //
-
-  // YOUR CODE ABOVE HERE //
+  //take string and return it reversed as a string
+  //need to split string by each char to access each char. array here. assign to variable
+  var inputSplit = input.split("");
+  //create array to push values into
+  var reverseArr = [];
+//then loop backwards over this array
+for (var i = inputSplit.length-1; i >= 0; i--){
+  //push each index value into new array
+  reverseArr.push(inputSplit[i]);
+}
+//then join each value in this new array by "". assign to variable to return
+var outputString = reverseArr.join("");
+//return this variable of reversed string 
+return outputString;
 }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

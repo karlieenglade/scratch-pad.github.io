@@ -58,7 +58,7 @@ function makeContactList() {
       return contacts.length;
     },
     addContact: function(contact){
-    //takes contact object to add to contacts list/array
+    //i: contact object to add to contacts list/array
     //push contact object into contacts array
     contacts.push(contact);
     },
@@ -70,12 +70,12 @@ function makeContactList() {
       for (var i = 0; i < contacts.length; i++){
         //constacts[i] is an object, so use object access
           // if contact[i] object first and last name with space between === fullName
-        //if contacts[i].nameFirst + " " + contacts[i].nameLast === fullName
         if (contacts[i].nameFirst + " " + contacts[i].nameLast === fullName){
           //then return that object, contacts[i]
           return contacts[i];
           //otherwise
         } else {
+          //return undefined
           return undefined;
         }
       }
@@ -87,7 +87,7 @@ function makeContactList() {
         //if contact object === input contact
         if (contacts[i] === contact){
           //delete it using splice
-            //delete 1 item starting at index of matching contact
+            //delete 1 item, starting at index of matching contact
           contacts.splice(contacts[i], 1);
         }
       }
@@ -96,16 +96,17 @@ function makeContactList() {
       //i:
       //o: a string of all the full names of contacts, separated by line break
       //c: no new-line after last contact
-      //create storage array to store full names in, to join /n later for string return
+      //create storage array to store full names in, to join \n later for string return
       var storage = [];
       //loop over contacts list
       for (var i = 0; i < contacts.length; i++){
         //push full name into storage array
         storage.push(contacts[i].nameFirst + " " + contacts[i].nameLast);
       }
-      //assigning joined stoarge array to variable
+      //assigning joined storage array to variable
+        //using join because it only affects between values, not at end of values
       var storageStr = storage.join("\n");
-      //returning this string
+      //return this string
       return storageStr;
     }
   }

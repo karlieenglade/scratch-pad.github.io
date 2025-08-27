@@ -14,10 +14,15 @@
  *
  * HINT: There is a method that can help with this.
  */
+/*
+i: any datatype
+o: boolean, based on is input value is an array
+*/
 function isArray(value) {
-  // YOUR CODE BELOW HERE //
-
-  // YOUR CODE ABOVE HERE //
+  //cannot use typeof since arrays are seen as objects 
+  //Array.isArray() method works
+  //returns boolean if input value is an array
+  return Array.isArray(value);
 }
 
 /**
@@ -34,11 +39,21 @@ function isArray(value) {
  * isObject([1, 2, 3]); // false
  * 
  */
+/*
+i: any data type
+o: boolean, based on if value is an object (collection not list like array)
+*/
 function isObject(value) {
-  // YOUR CODE BELOW HERE //
-  
-  // YOUR CODE ABOVE HERE //
-}
+  // //if value is an array OR null OR a date
+  if (Array.isArray(value) || value === null || value instanceof Date){
+    //return false
+    return false;
+    //otherwise
+  } else {
+    //return boolean based on if value is an object object
+    return typeof value === "object";
+  } 
+}  
 
 /**
  * Given an input value, return true if is either an Array or an an Object
@@ -46,10 +61,22 @@ function isObject(value) {
  *
  * TIP: Similar to isObject, but we must return true if the value is an Array.
  */
+/* 
+i: any datatype, value
+o: boolean, based on if value is array or object object
+*/
 function isCollection(value) {
-  // YOUR CODE BELOW HERE //
+  //if value is an array or an object object, return true
+  //if value is not null object or date object
+  if (value === null || value instanceof Date){
+    //return false
+    return false;
+    //else 
+  } else {
+    //return boolean based on if value is array object OR object object
+    return (Array.isArray(value) || typeof value === "object");
+  }
 
-  // YOUR CODE ABOVE HERE //
 }
 
 /**
@@ -71,10 +98,30 @@ function isCollection(value) {
  *    typeOf("javascript") -> "string"
  *    typeOf([1,2,3]) -> "array"
  */
+/*
+i: any datatype
+o: string representing the input value's datatype 
+*/
 function typeOf(value) {
-  // YOUR CODE BELOW HERE //
-  
-  // YOUR CODE ABOVE HERE //
+  //first: IF date, null, array ... since these are objects
+  //if value is a Date
+  if (value instanceof Date){
+    //return "date"
+    return "date";
+    //else if value is null
+  } else if (value === null){
+    //return null
+    return "null";
+    //else if value is an array
+  } else if (Array.isArray(value)){
+    //return "array"
+    return "array";
+    //else
+  } else {
+    //return typeof value 
+    return typeof value;
+  }
+
 }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

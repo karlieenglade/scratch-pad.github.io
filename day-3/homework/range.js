@@ -21,10 +21,31 @@
  *  b. you'll need a loop, which one is best?
  *  c. you'll wanna make use of the push() method of Array.
  */
+/*
+i: 2 numbers/integers
+o: array, containing all integers between start and end, inclusive
+c: loop, push
+*/
 function range(start, end) {
-  // YOUR CODE BELOW HERE //
-
-  // YOUR CODE ABOVE HERE //
+  //create storage array to push into and return later
+  var storage = [];
+  //if start < end
+  if (start < end){
+    //loop over numbers from start to end, inclusive
+      for (var i = start; i <= end; i++){
+        //push each integer into storage array
+        storage.push(i);
+      }
+      //else if start > end
+  } else if (start > end){
+    //loop over numbers from start to end backwards, inclusive
+    for (var i = start; i >= end; i--){
+      //push numbers into storage array
+      storage.push(i);
+    }
+  }
+  //return storage array
+  return storage;
 }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

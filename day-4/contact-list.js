@@ -32,9 +32,18 @@
  *          WARNING: To pass this test, the LAST full name should have NO
  *          new-line character added after it!
  */
+/*
+i: 1 number, 2 strings; id, nameFirst, nameLast
+o: object, contact object
+*/
 
 function makeContact(id, nameFirst, nameLast) {
-  // Solve this function first
+  //return contact object
+  return {
+    id: id,
+    nameFirst: nameFirst,
+    nameLast: nameLast
+  };
 }
 
 function makeContactList() {
@@ -48,6 +57,57 @@ function makeContactList() {
     length: function(){
       return contacts.length;
     },
+    addContact: function(contact){
+    //takes contact object to add to contacts list/array
+    //push contact object into contacts array
+    contacts.push(contact);
+    },
+    findContact: function(fullName){
+      // i: string of full name, "Max Ross"
+      // o: returns contact object if fullName is found in contact list
+      //      or returns undefined if not found 
+      //loop over contacts list to access every value/object
+      for (var i = 0; i < contacts.length; i++){
+        //constacts[i] is an object, so use object access
+          // if contact[i] object first and last name with space between === fullName
+        //if contacts[i].nameFirst + " " + contacts[i].nameLast === fullName
+        if (contacts[i].nameFirst + " " + contacts[i].nameLast === fullName){
+          //then return that object, contacts[i]
+          return contacts[i];
+          //otherwise
+        } else {
+          return undefined;
+        }
+      }
+    },
+    removeContact: function(contact){
+      // i: contact object, to be removed from contacts list
+      //loop over contacts list
+      for (var i = 0; i < contacts.length; i++){
+        //if contact object === input contact
+        if (contacts[i] === contact){
+          //delete it using splice
+            //delete 1 item starting at index of matching contact
+          contacts.splice(contacts[i], 1);
+        }
+      }
+    },
+    printAllContactNames: function(){
+      //i:
+      //o: a string of all the full names of contacts, separated by line break
+      //c: no new-line after last contact
+      //create storage array to store full names in, to join /n later for string return
+      var storage = [];
+      //loop over contacts list
+      for (var i = 0; i < contacts.length; i++){
+        //push full name into storage array
+        storage.push(contacts[i].nameFirst + " " + contacts[i].nameLast);
+      }
+      //assigning joined stoarge array to variable
+      var storageStr = storage.join("\n");
+      //returning this string
+      return storageStr;
+    }
   }
 }
 
